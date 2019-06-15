@@ -1,0 +1,51 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": false,
+    "alwaysStrict": true,
+    "baseUrl": ".",
+    "charset": "utf8",
+    "diagnostics": true,
+    "emitBOM": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "jsx": "react",
+    "lib": [
+      "es6",
+      "dom",
+      "scripthost"
+    ],
+    "module": "es2015",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "paths": {
+      "@elements/*": [ "src/elements/*" ],
+      "@models/*": [ "src/models/*" ],
+      "@stores/*": [ "src/stores/*" ],
+      "@services/*": [ "src/services/*" ],
+      "@images": [ "src/images/*" ]
+    },
+    "removeComments": true,
+    "sourceMap": true,
+    "target": "es5",
+    "types": [
+      "jquery",
+      "justcore",
+      "react",
+      "react-dom",
+      "mobx",
+      "mobx-react",
+      "classnames",
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "src/**/*"
+  ]
+}
