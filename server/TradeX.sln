@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeX.Api", "TradeX.Api\TradeX.Api.csproj", "{C840208F-0289-4CAC-8CE5-D73D008A6F3D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeX.Constants", "TradeX.Constants\TradeX.Constants.csproj", "{7B698FDF-0CA7-489C-9864-A1FCAC289D82}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeX.Shared", "TradeX.Shared\TradeX.Shared.csproj", "{82370A2C-AC2B-4EE1-A9FC-634FC8AAD1F2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeX.DataAccess", "TradeX.DataAccess\TradeX.DataAccess.csproj", "{B77274D3-C85A-4D3C-9086-B06485A75EA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeX.Services", "TradeX.Services\TradeX.Services.csproj", "{7B1B2BEC-1F50-40CA-8D41-479D5689C823}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeX.Models", "TradeX.Models\TradeX.Models.csproj", "{5C895E05-0CF2-40D7-80E5-6D350170D725}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C840208F-0289-4CAC-8CE5-D73D008A6F3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C840208F-0289-4CAC-8CE5-D73D008A6F3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C840208F-0289-4CAC-8CE5-D73D008A6F3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C840208F-0289-4CAC-8CE5-D73D008A6F3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B698FDF-0CA7-489C-9864-A1FCAC289D82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B698FDF-0CA7-489C-9864-A1FCAC289D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B698FDF-0CA7-489C-9864-A1FCAC289D82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B698FDF-0CA7-489C-9864-A1FCAC289D82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82370A2C-AC2B-4EE1-A9FC-634FC8AAD1F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82370A2C-AC2B-4EE1-A9FC-634FC8AAD1F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82370A2C-AC2B-4EE1-A9FC-634FC8AAD1F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82370A2C-AC2B-4EE1-A9FC-634FC8AAD1F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B77274D3-C85A-4D3C-9086-B06485A75EA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B77274D3-C85A-4D3C-9086-B06485A75EA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B77274D3-C85A-4D3C-9086-B06485A75EA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B77274D3-C85A-4D3C-9086-B06485A75EA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B1B2BEC-1F50-40CA-8D41-479D5689C823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B1B2BEC-1F50-40CA-8D41-479D5689C823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B1B2BEC-1F50-40CA-8D41-479D5689C823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B1B2BEC-1F50-40CA-8D41-479D5689C823}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C895E05-0CF2-40D7-80E5-6D350170D725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C895E05-0CF2-40D7-80E5-6D350170D725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C895E05-0CF2-40D7-80E5-6D350170D725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C895E05-0CF2-40D7-80E5-6D350170D725}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FEBE879A-6EF5-4073-8978-0AF6DE4A5B69}
+	EndGlobalSection
+EndGlobal
