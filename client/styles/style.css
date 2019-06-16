@@ -392,7 +392,7 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 .list-categories .category-item { margin-bottom: 2px; }
 .list-categories .category-title a { background: #09437f; padding: 10px; }
 .list-categories .category-title a:hover { background: #0b5199; }
-.list-categories .category-body { padding: 1px 0; }
+.list-categories .category-body { padding: 1px 0; overflow-y: auto; height: 350px }
 
 /* ------------------------------------------------------------ *\
 	list-selected-match
