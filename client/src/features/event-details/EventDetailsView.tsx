@@ -45,13 +45,9 @@ export class EventDetailsView extends React.Component<Props, {}> {
             <section className='section section-total-goals'>
               <div className='section-head section-breadcrumbs'>
                 <h2 className='section-title'>
-                  {/* Draw Odds */}
-                {event.league.name}
+                  {event.league.name}
                 </h2>
               </div>
-
-              {/* <div className='section-body'>
-              </div> */}
             </section>
 
             <section className='section section-match-results'>

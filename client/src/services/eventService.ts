@@ -103,7 +103,7 @@ export class EventService {
       base.params.leagueId = this.searchedLeagueEvent;
     }
     if (this.searchedSportEvent !== 'all') {
-      base.params.sportsId = this.searchedSportEvent;
+      base.params.sportId = this.searchedSportEvent;
     }
 
     this.ajax.get(base)
