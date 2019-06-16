@@ -3,7 +3,7 @@ using TradeX.DataAccess.Entities;
 
 namespace TradeX.Models.Events
 {
-    public class CreateEventReqModel
+    public class UpdateEventReqModel
     {
         public string Name { get; set; }
 
@@ -21,10 +21,11 @@ namespace TradeX.Models.Events
 
         public int LeagueId { get; set; }
 
-        public Event ToEntity()
+        public Event ToEntity(int id)
         {
             return new Event()
             {
+                Id = id,
                 Name = this.Name,
                 Date = this.Date,
                 HomeTeamScore = this.HomeTeamScore,

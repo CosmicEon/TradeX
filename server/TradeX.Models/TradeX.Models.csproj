@@ -9,9 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Leagues\" />
     <Folder Include="Users\" />
-    <Folder Include="Sports\" />
   </ItemGroup>
 
 </Project>

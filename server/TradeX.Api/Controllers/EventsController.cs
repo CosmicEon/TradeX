@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using TradeX.DataAccess.Entities;
+using TradeX.Models;
 using TradeX.Models.Events;
 using TradeX.Services.Contracts;
 
@@ -19,16 +19,14 @@ namespace TradeX.Api.Controllers
             _eventsService = eventsService;
         }
 
-        [Authorize]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<SingleEventModel>>> GetAll()
+        public async Task<ActionResult<Pagination<SingleEventModel>>> GetAll(int? sportId, int? leagueId, string searchTerm, int pageIndex = 1)
         {
-            var result = await _eventsService.GetAllAsync();
+            var result = await _eventsService.GetAllAsync(sportId, leagueId, searchTerm, pageIndex);
 
             return Ok(result);
         }
 
-        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<SingleEventModel>> GetById(int id)
         {
@@ -50,10 +48,24 @@ namespace TradeX.Api.Controllers
 
             if(!result.Succeeded)
             {
-                return StatusCode(400, result.Errors);
+                return StatusCode(result.StatusCode, result.Errors);
             }
 
             return Ok(result.Data);
+        }
+
+        [Authorize]
+        [HttpPatch("{id}")]
+        public async Task<ActionResult> Update(int id, UpdateEventReqModel model)
+        {
+            var result = await _eventsService.UpdateAsync(id, model);
+
+            if (!result.Succeeded)
+            {
+                return StatusCode(result.StatusCode, result.Errors);
+            }
+
+            return NoContent();
         }
     }
 }
