@@ -16,7 +16,7 @@ namespace TradeX.Services
 
         public async Task<IEnumerable<SingleLeagueModel>> GetAllAsync()
         {
-            var result = await _db.Sports.Select(s => new SingleLeagueModel
+            var result = await _db.League.Select(s => new SingleLeagueModel
             {
                 Id = s.Id,
                 Name = s.Name

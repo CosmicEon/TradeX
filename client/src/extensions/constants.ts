@@ -11,7 +11,7 @@ declare global {
 }
 
 namespace CONSTANTS {
-  export const DOMAIN = 'http://localhost:5001';
+  export const DOMAIN = 'http://localhost:5000';
 
   export const MODULE_MASTER_PAGE = 'root';
   export const MODULE_HEADER = 'header';

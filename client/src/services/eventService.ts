@@ -1,4 +1,4 @@
-import { ObservableMap, observable, action, onBecomeObserved, computed } from 'mobx';
+import { ObservableMap, observable, action, onBecomeObserved, computed, runInAction } from 'mobx';
 import { Event } from '@models/Event';
 
 export interface GroupType {
@@ -23,16 +23,18 @@ export class EventService {
     this.searchedLeagueEvent = 'all';
     this.searchedSportEvent = 'all';
     this.leagueEvents = [
-      { name: 'All League Event', value: 'all' },
+      { name: 'Choose League', value: 'all' },
     ];
     this.sportsEvents = [
-      { name: 'All Sport Events', value: 'all' },
+      { name: 'Choose Sport', value: 'all' },
     ];
 
     this.core = core;
     this.ajax = core.getService('ajax');
     onBecomeObserved(this, 'events', this.getAll);
-    this.getAll();
+    // this.getAll();
+    this.getAllLeagueEvent();
+    this.getAllSportEvent();
   }
 
   @computed
@@ -56,12 +58,16 @@ export class EventService {
 
   @action.bound
   public getAllLeagueEvent() {
-    this.ajax.get({ url: `${this.baseUrl}/api/sports` })
+    this.ajax.get({ url: `${this.baseUrl}/api/leagues` })
       .then((response) => {
         const convertedRes = JSON.parse(response.data);
-        convertedRes.forEach(x => {
-          this.leagueEvents.push({ value: x.id, name: x.name });
+
+        runInAction(() => {
+          convertedRes.forEach(x => {
+            this.leagueEvents.push({ value: x.id, name: x.name });
+          });
         });
+
       })
       .catch((error) => console.log(error));
   }
@@ -73,11 +79,14 @@ export class EventService {
 
   @action.bound
   public getAllSportEvent() {
-    this.ajax.get({ url: `${this.baseUrl}/api/leagues` })
+    this.ajax.get({ url: `${this.baseUrl}/api/sports` })
       .then((response) => {
         const convertedRes = JSON.parse(response.data);
-        convertedRes.forEach(x => {
-          this.leagueEvents.push({ value: x.id, name: x.name });
+
+        runInAction(() => {
+          convertedRes.forEach(x => {
+            this.sportsEvents.push({ value: x.id, name: x.name });
+          });
         });
       })
       .catch((error) => console.log(error));
