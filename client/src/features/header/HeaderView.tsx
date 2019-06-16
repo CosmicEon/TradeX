@@ -23,17 +23,19 @@ export class HeaderView extends React.Component<Props, {}> {
           <a href='#' className='logo'>
             <img src={window.location.hash.substr(1) === '/admin' ? adminLogo : logo} alt='' />
           </a>
-
-          <nav className='nav-log'>
-            <ul>
-              <li>
-                <a href='#' onClick={() => this.handleClick(true)}>Login</a>
-              </li>
-              <li>
-                <a href='#' onClick={() => this.handleClick()}>Register</a>
-              </li>
-            </ul>
-          </nav>
+          {!this.props.store.authStore.isAuthenticated ?
+            <nav className='nav-log'>
+              <ul>
+                <li>
+                  <a href='#' onClick={() => this.handleClick(true)}>Login</a>
+                </li>
+                <li>
+                  <a href='#' onClick={() => this.handleClick()}>Register</a>
+                </li>
+              </ul>
+            </nav> :
+            <div>Hello, {this.props.store.authStore.email}</div>
+          }
         </div>
       </header>
     );

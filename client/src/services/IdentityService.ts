@@ -1,32 +1,31 @@
-import { observable, action } from 'mobx';
-import { User } from '@models/User';
+import { action } from 'mobx';
+import * as jwtDecode from 'jwt-decode';
+import { GlobalAuthStore } from '@stores/GlobalAuthStore';
 
-const TOKEN_KEY = 'token';
+const TOKEN_KEY = 'access_token';
 
 export class IdentityService {
-  @observable public currentUser: User;
+  private authStore: GlobalAuthStore;
 
-  constructor() {
-    this.currentUser = this.loadUser();
+  constructor(core: jc.Core) {
+    this.authStore = core.globalStore.authStore;
   }
 
   @action
-  public saveUser(user: User): void {
-    if (user) {
-      localStorage.setItem(TOKEN_KEY, JSON.stringify(user));
-    } else {
-      localStorage.removeItem(TOKEN_KEY);
-    }
+  public saveUser(token: string): void {
 
-    this.currentUser = user;
+    const jwtObj = jwtDecode(token);
+    this.authStore.isAuthenticated = true;
+    this.authStore.email = jwtObj['TradeX-Email'];
+    this.authStore.role = jwtObj['TradeX-Role'];
+    this.setToken(token);
   }
 
-  private loadUser(): User {
-    try {
-      return JSON.parse(localStorage.getItem(TOKEN_KEY)) as User;
-    } catch (err) {
-      console.error(err.message);
-      return null;
-    }
+  public getToken(): string {
+    return localStorage.getItem(TOKEN_KEY);
+  }
+
+  private setToken(token: string): void {
+    localStorage.setItem(TOKEN_KEY, token);
   }
 }

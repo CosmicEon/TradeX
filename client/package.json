@@ -46,5 +46,8 @@
     "build": "npm run clean && cross-env NODE_ENV=development webpack",
     "build:prod": "npm run clean && cross-env NODE_ENV=production webpack"
   },
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "dependencies": {
+    "jwt-decode": "^2.2.0"
+  }
 }

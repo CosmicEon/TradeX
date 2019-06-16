@@ -40,7 +40,7 @@ export class AjaxService implements tradeX.IAjaxService {
     'content-type': 'application/json'
   };
 
-  constructor(private core: jc.Core) {
+  constructor(core: jc.Core) {
     this.identity = core.getService('identity');
   }
 
@@ -88,6 +88,12 @@ export class AjaxService implements tradeX.IAjaxService {
 
     props.url = encodeURI(props.url);
     request.open(httpMethod, props.url, true);
+
+    const token = this.identity.getToken();
+    if (token && !headers.authorization) {
+      request.setRequestHeader('Authorization', `Bearer ${token}`);
+    }
+
     Object.keys(headers).forEach((key) => {
       const value = headers[key];
       request.setRequestHeader(key, value);
@@ -99,11 +105,11 @@ export class AjaxService implements tradeX.IAjaxService {
   private async sendRequest(ajaxRequest: tradeX.IAjaxRequestWrapper): Promise<tradeX.IAjaxResponse> {
     let request = ajaxRequest.request;
     const data = ajaxRequest.data;
-    if (!request.getResponseHeader('Authorization') && this.identity.currentUser) {
-      // IMPORTANT: moving this.core.getService('auth') to the constructor will create a circular dependency !!!
-      const token = await this.core.getService('token').get();
-      request.setRequestHeader('Authorization', 'Bearer ' + token);
-    }
+    // if (!request.getResponseHeader('Authorization') && this.identity..) {
+    //   // IMPORTANT: moving this.core.getService('auth') to the constructor will create a circular dependency !!!
+    //   const token = await this.core.getService('token').get();
+    //   request.setRequestHeader('Authorization', 'Bearer ' + token);
+    // }
 
     const requestPromise = new Promise<tradeX.IAjaxResponse>((resolve, reject) => {
       request.onreadystatechange = function handleOnReadyStateChange() {

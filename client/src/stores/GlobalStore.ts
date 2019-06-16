@@ -1,4 +1,4 @@
-import { AuthStore } from './AuthStore';
+import { GlobalAuthStore } from './GlobalAuthStore';
 import { observable, action } from 'mobx';
 
 // global constant defined in webpack
@@ -11,10 +11,10 @@ export interface RouteProps extends jc.RouteMatch {
 export class GlobalStore {
 
   @observable public route;
-  public authStore: AuthStore;
+  public authStore: GlobalAuthStore;
 
   constructor(core: jc.Core) {
-    this.authStore = new AuthStore(core);
+    this.authStore = new GlobalAuthStore(core);
 
     this.route = {
       Module: null,

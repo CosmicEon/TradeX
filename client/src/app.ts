@@ -44,6 +44,13 @@ app.init(() => {
   registerModules(app);
   registerRoutes(app);
 
+  const token = localStorage.getItem('access_token');
+
+  if (token) {
+    const idenity = app.getService('identity');
+    idenity.saveUser(token);
+  }
+
   app.startModule(app.constants.MODULE_MASTER_PAGE, {
     props: {
       root: document.getElementById('root')

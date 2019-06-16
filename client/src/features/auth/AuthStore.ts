@@ -4,14 +4,14 @@ import { IdentityService } from '@services/IdentityService';
 export class AuthStore {
 
   @observable public isVisible: boolean;
-  public isLogin: boolean;
   public baseUrl: string;
+  public isLogin: boolean;
   @observable public email: string;
   @observable public password: string;
   @observable public confirmPassword: string;
 
-  private identity: IdentityService;
   private ajax: tradeX.IAjaxService;
+  private identity: IdentityService;
 
   constructor(sandbox: jc.Sandbox) {
     this.baseUrl = sandbox.constants.DOMAIN;
@@ -35,21 +35,32 @@ export class AuthStore {
 
   @action
   public authRequest() {
-    if (this.password === this.confirmPassword) {
-      const url = this.isLogin ? `${this.baseUrl}/api/Auth/login` : `${this.baseUrl}/api/Auth/register`;
-      const data = {
-        email: this.email,
-        password: this.password
-      };
-
-      this.ajax.post({ url, data })
-        .then((response) => {
-          // TODO: check if prop is user
+    if (this.isLogin) {
+      this.ajax.post({
+        url: `${this.baseUrl}/api/auth/login`,
+        data: JSON.stringify({
+          email: this.email,
+          password: this.password
+        })
+      }).then((response) => {
           const parsedResponse = JSON.parse(response.data);
-          this.identity.saveUser(parsedResponse.user);
+          this.identity.saveUser(parsedResponse.accessToken);
+        })
+        .catch((error) => { console.log(error); });
+    } else {
+
+      this.ajax.post({
+        url: `${this.baseUrl}/api/auth/register`,
+        data: JSON.stringify({
+          email: this.email,
+          password: this.password
+        })
+      }).then((response) => {
+          // const parsedResponse = JSON.parse(response.data);
         })
         .catch((error) => { console.log(error); });
     }
+    this.toggle(true);
   }
 
   @action
@@ -58,5 +69,4 @@ export class AuthStore {
     this.password = '';
     this.confirmPassword = '';
   }
-
 }

@@ -1,9 +1,12 @@
 import { action } from 'mobx';
+import { GlobalAuthStore } from '@stores/GlobalAuthStore';
 
 export class HeaderStore {
 
-  constructor(private sb: jc.Sandbox) {
+  public authStore: GlobalAuthStore;
 
+  constructor(private sb: jc.Sandbox) {
+    this.authStore = sb.globalStore.authStore;
   }
 
   @action
