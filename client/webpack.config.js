@@ -55,15 +55,12 @@ let config = {
         exclude: /node_modules/
       },
       {
-        test: /\.(sass|scss|css)$/,
+        test: /\.css$/,
         loader: extractStyles.extract({
           fallback: "style-loader",
           use: [{
             loader: "css-loader?minimize",
           },
-          {
-            loader: "sass-loader"
-          }
           ]
         })
       },

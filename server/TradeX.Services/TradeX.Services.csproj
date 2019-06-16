@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TradeX.Constants\TradeX.Constants.csproj" />
+    <ProjectReference Include="..\TradeX.DataAccess\TradeX.DataAccess.csproj" />
+    <ProjectReference Include="..\TradeX.Models\TradeX.Models.csproj" />
+  </ItemGroup>
+
+</Project>
