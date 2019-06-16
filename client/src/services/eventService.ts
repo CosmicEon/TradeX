@@ -1,4 +1,4 @@
-import { ObservableMap, observable, action, computed, runInAction } from 'mobx';
+import { observable, action, computed, runInAction } from 'mobx';
 import { Event } from '@models/Event';
 
 export interface GroupType {
@@ -8,7 +8,7 @@ export interface GroupType {
 export class EventService {
 
   public baseUrl: string;
-  @observable public events: ObservableMap<number, Event>;
+  @observable public events: Event[] = [];
   @observable public leagueEvents: GroupType[];
   @observable public sportsEvents: GroupType[];
   @observable public searchedLeagueEvent: string;
@@ -19,7 +19,6 @@ export class EventService {
 
   constructor(core: jc.Core) {
     this.baseUrl = core.constants.DOMAIN;
-    this.events = observable.map();
     this.searchedLeagueEvent = 'all';
     this.searchedSportEvent = 'all';
     this.leagueEvents = [
@@ -44,7 +43,7 @@ export class EventService {
 
   @action
   public setCurrentEvent(id: number) {
-    const event = this.events.get(id);
+    const event = this.events.find(x => x.id === id);
     this.core.publishAsync({
       type: this.core.constants.MESSAGE_CHANGE_EVENT,
       event
@@ -110,8 +109,8 @@ export class EventService {
       .then((response) => {
         const convertedRes = JSON.parse(response.data);
         runInAction(() => {
-          convertedRes.forEach(x => {
-            this.events.set(x.id, x as Event);
+          convertedRes.result.map(x => {
+            this.events.push(x as Event);
           });
         });
       })

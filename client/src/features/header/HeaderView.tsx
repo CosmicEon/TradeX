@@ -34,7 +34,15 @@ export class HeaderView extends React.Component<Props, {}> {
                 </li>
               </ul>
             </nav> :
-            <div>Hello, {this.props.store.authStore.email}</div>
+            <nav className='nav-log'>
+              <div className='helloUser'>Hello, {this.props.store.authStore.email}</div>
+              <ul>
+                <li>
+                  <a href='#' onClick={() => this.handleLogout()}>Logout</a>
+                </li>
+              </ul>
+            </nav>
+
           }
         </div>
       </header>
@@ -43,5 +51,9 @@ export class HeaderView extends React.Component<Props, {}> {
 
   private handleClick(isLogin: boolean = false) {
     this.props.store.switchAuth(isLogin);
+  }
+
+  private handleLogout() {
+    this.props.store.authStore.isAuthenticated = false;
   }
 }

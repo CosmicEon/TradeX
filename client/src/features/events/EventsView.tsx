@@ -22,8 +22,27 @@ export class EventsView extends React.Component<Props, {}> {
       <div className='widget widget-list-categories'>
         <div className='widget-inner'>
           <ul className='list-categories'>
-            {Object.keys(store.groups).map((key) => (
+            <ul className='list-selected-match'>
               <li>
+                <div className='category-item'>
+                  <div className='category-head'>
+                    <h4 className='category-title'>
+                      <a>Events</a>
+                    </h4>
+                  </div>
+                  <div className='category-body'>
+                    {store.events.map(event => (
+                      <div key={event.id} onClick={(e): any => { this.props.store.selectedEvent(event.id); }}>
+                        <a>{event.name}</a>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            {/* {Object.keys(store.groups).map((key, index) => (
+              <li key={index}>
                 <div className='category-item'>
                   <div className='category-head'>
                     <h4 className='category-title'>
@@ -32,25 +51,18 @@ export class EventsView extends React.Component<Props, {}> {
                   </div>
 
                   <div className='category-body'>
-                    <ul className='list-selected-match'>
-                      {store.groups[key].map(event => (
-                        <li key={event.id} onClick={(e: any) => this.handleSelectedEvent(e, event.id)}>
-                          <a>{event.eventName}</a>
-                        </li>
-                      ))}
-                    </ul>
+
                   </div>
                 </div>
               </li>
-            ))}
+            ))} */}
           </ul>
         </div>
-      </div>
+      </div >
     );
   }
 
-  private handleSelectedEvent(e: any, id: number) {
-    e.preventDefault();
+  private readonly handleSelectedEvent = (id: number): any => async (): Promise<void> => {
     this.props.store.selectedEvent(id);
   }
 }

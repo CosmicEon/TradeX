@@ -3,8 +3,8 @@ import { Sport } from './Sport';
 
 export class Event {
   public id: number;
-  public eventName: string;
-  public eventDate: string;
+  public name: string;
+  public date: string;
   public homeTeamScore: number;
   public awayTeamScore: number;
   public homeTeamOdds: number;

@@ -8,6 +8,8 @@ using TradeX.DataAccess;
 using TradeX.DataAccess.Entities;
 using TradeX.Models;
 using TradeX.Models.Events;
+using TradeX.Models.Leagues;
+using TradeX.Models.Sports;
 using TradeX.Services.Contracts;
 using TradeX.Services.Results;
 
@@ -48,6 +50,7 @@ namespace TradeX.Services
             var result = await query
                 .Select(e => new SingleEventModel
                 {
+                    Id = e.Id,
                     Name = e.Name,
                     Date = e.Date,
                     HomeTeamScore = e.HomeTeamScore,
@@ -55,6 +58,16 @@ namespace TradeX.Services
                     HomeTeamOdds = e.HomeTeamOdds,
                     AwayTeamOdds = e.AwayTeamOdds,
                     DrawOdds = e.HomeTeamOdds,
+                    League = new SingleLeagueModel
+                    {
+                        Id = e.LeagueId,
+                        Name = e.League.Name,
+                    },
+                    Sport = new SingleSportModel
+                    {
+                        Id = e.League.SportId,
+                        Name = e.League.Sport.Name,
+                    },
                 })
                 .ToListAsync();
 

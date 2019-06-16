@@ -20,15 +20,15 @@ export class EventsStore {
     return this.service.allEvents;
   }
 
-  @computed
-  public get groups() {
-    return this.events.reduce((result, item) => {
-      if (!result[item.sport.name]) {
-        result[item.sport.name] = [];
-      }
-      result[item.sport.name].push(item);
-      return result;
-    }, {});
-  }
+  // @computed
+  // public get groups() {
+  //   return this.events.reduce((result, item) => {
+  //     if (!result[item.sport.name]) {
+  //       result[item.sport.name] = [];
+  //     }
+  //     result[item.sport.name].push(item);
+  //     return result;
+  //   }, {});
+  // }
 
 }

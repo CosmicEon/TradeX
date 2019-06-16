@@ -1,9 +1,13 @@
 ﻿using System;
+using TradeX.Models.Leagues;
+using TradeX.Models.Sports;
 
 namespace TradeX.Models.Events
 {
     public class SingleEventModel
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public DateTimeOffset Date { get; set; }
@@ -17,5 +21,9 @@ namespace TradeX.Models.Events
         public decimal AwayTeamOdds { get; set; }
 
         public decimal DrawOdds { get; set; }
+
+        public SingleLeagueModel League { get; set; }
+
+        public SingleSportModel Sport { get; set; }
     }
 }

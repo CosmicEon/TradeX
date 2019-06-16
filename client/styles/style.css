@@ -239,7 +239,7 @@ blockquote:last-child { margin-bottom: 0; }
 \* ------------------------------------------------------------ */
 
 .container { background: rgba(0,0,0,.7); padding: 14px; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; color: #fff; margin: 0 auto; margin-bottom: 40px; }
-.container { -ms-flex-pack: justify; justify-content: space-between; }
+.container { -ms-flex-pack: justify; justify-content: space-between; width: 90% }
 .container .sidebar { /*width: 200px; border: 1px solid #fff; */}
 .container .content { /*width: calc(100% - 420px);*/ margin: 0 10px; }
 .container .content .select-event { padding: 0px 65px; text-align: center; }
@@ -281,7 +281,7 @@ blockquote:last-child { margin-bottom: 0; }
 
 .footer .payment-method:before { content: ''; position: absolute; top: 0; left: 0px; right: 0px; height: 1px; background: rgba(255,255,255,.7); }
 .footer .payment-method { position: relative;  width: 100%; margin-top: 20px; padding-top: 20px;  }
-.footer .payment-method ul { list-style: none; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; width: 100%; -ms-flex-pack: justify; justify-content: space-between; } 
+.footer .payment-method ul { list-style: none; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center; width: 100%; -ms-flex-pack: justify; justify-content: space-between; }
 .footer .payment-method ul img { width: 100%; height: auto; max-width: 50px; }
 .footer .payment-method ul li { width: 100%; text-align: center; }
 /* ------------------------------------------------------------ *\
@@ -436,8 +436,10 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 	Nav
 \* ------------------------------------------------------------ */
 
+.nav-log { display: flex; }
+.nav-log .helloUser { color: #fff; margin: auto 20px; }
 .nav-log ul { list-style: none; display: -ms-flexbox; display: flex; -ms-flex-align: center; align-items: center;   }
-.nav-log ul a { text-decoration:  none;  display: inline-block; padding: 10px 15px; background: #337ab7; text-transform: uppercase;color: #fff; } 
+.nav-log ul a { text-decoration:  none;  display: inline-block; padding: 10px 15px; background: #337ab7; text-transform: uppercase;color: #fff; }
 .nav-log ul a:hover { background: #135da9; }
 .nav-log ul li:last-child a { background: #ffd524; }
 .nav-log ul li:last-child a:hover { background: #e5b700; }
@@ -454,10 +456,10 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 .popup-inner { padding: 30px ;  background: #09437F; position: relative; }
 .popup-inner .form-title { color: #fff; font-weight: 400; text-align: center; }
 .popup-inner .close { width: 25px; height: 25px; position: absolute; top: 10px; right: 10px; cursor: pointer;  }
-.popup-inner .close:after { content: ''; position: absolute; top: 13px; left: 0; height: 2px; width: 100%; background: #fff; 
+.popup-inner .close:after { content: ''; position: absolute; top: 13px; left: 0; height: 2px; width: 100%; background: #fff;
     -ms-transform: rotate(45deg);
         transform: rotate(45deg); }
-.popup-inner .close:before { content: ''; position: absolute; top: 13px; left: 0;  height: 2px; width: 100%; background: #fff; 
+.popup-inner .close:before { content: ''; position: absolute; top: 13px; left: 0;  height: 2px; width: 100%; background: #fff;
     -ms-transform: rotate(-45deg);
         transform: rotate(-45deg); }
 /* ------------------------------------------------------------ *\
@@ -483,7 +485,7 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit !important; -webkit-bo
 .section-breadcrumbs .select-score { margin: 0 5px; border: none; text-decoration: none; display: inline-block; padding: 10px 15px; background: #337ab7; text-transform: uppercase; color: #fff; }
 
 /* ------------------------------------------------------------ *\
-	
+
 \* ------------------------------------------------------------ */
 
 .section .section-body { display: flex; justify-content: space-around; background: #191919; }

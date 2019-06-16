@@ -33,7 +33,7 @@ export class EventDetailsView extends React.Component<Props, {}> {
 
                 <li key='2'>
                   <a href='#'>
-                    {event.eventName}
+                    {event.name}
                   </a>
                 </li>
                 <li key='3'>
