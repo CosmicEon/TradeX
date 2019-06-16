@@ -20,9 +20,10 @@ namespace CONSTANTS {
   export const MODULE_TEST = 'test';
   export const MODULE_FOOTER = 'footer';
   export const MODULE_EVENTS = 'events';
+  export const MODULE_SEARCH = 'search';
   export const MODULE_AUTH = 'auth-module';
   export const MODULE_REGISTER = 'register';
-  export const MODULE_BET_OPTIONS = 'bet-options';
+  export const MODULE_EVENT_DETAILS = 'event-details';
   export const MODULE_ADMIN = 'admin';
 
   export const MESSAGE_CHANGE_CONTENT = 'MESSAGE_CHANGE_CONTENT';

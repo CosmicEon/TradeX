@@ -26,7 +26,7 @@ export class AdminView extends React.Component<Props, State> {
         <div className='section-head'>
           <h3 className='section-title'>
             Header
-	 				</h3>
+        </h3>
         </div>
 
         <div className='section-body'>

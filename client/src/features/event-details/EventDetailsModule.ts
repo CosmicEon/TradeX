@@ -1,22 +1,22 @@
-import { BetOptionsView, Props } from './BetOptionsView';
-import { BetOptionsStore } from './BetOptionsStore';
+import { EventDetailsView, Props } from './EventDetailsView';
+import { EventDetailsStore } from './EventDetailsStore';
 import { Event } from '@models/Event';
 
-interface BetOptionsProps extends jc.Message {
+interface EventDetailsProps extends jc.Message {
   event: Event;
 }
 
-export class BetOptionsModule implements jc.Module {
+export class EventDetailsModule implements jc.Module {
   public root: HTMLElement;
-  public store: BetOptionsStore;
+  public store: EventDetailsStore;
 
   constructor(public sandbox: jc.Sandbox) {
-    this.store = new BetOptionsStore(sandbox);
+    this.store = new EventDetailsStore();
   }
 
   public init(): void {
     this.sandbox.mountView<Props>(
-      BetOptionsView,
+      EventDetailsView,
       {
         store: this.store
       },
@@ -30,7 +30,7 @@ export class BetOptionsModule implements jc.Module {
     ];
   }
 
-  public moduleDidReceiveMessage(message: BetOptionsProps): void {
+  public moduleDidReceiveMessage(message: EventDetailsProps): void {
     switch (message.type) {
       case this.sandbox.constants.MESSAGE_CHANGE_EVENT:
         this.store.changeEvent(message.event);

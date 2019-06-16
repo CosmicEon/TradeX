@@ -25,8 +25,11 @@ export class ContainerView extends React.Component<Props, {}> {
     switch (module) {
       case sandbox.constants.MODULE_HOME: return (
         <>
-          <Module id={sandbox.constants.MODULE_EVENTS} sandbox={sandbox} className='sidebar sidebar-categories' />
-          <Module id={sandbox.constants.MODULE_BET_OPTIONS} sandbox={sandbox} className='content' />
+          <div>
+            <Module id={sandbox.constants.MODULE_SEARCH} sandbox={sandbox} className='search' />
+            <Module id={sandbox.constants.MODULE_EVENTS} sandbox={sandbox} className='sidebar sidebar-categories' />
+          </div>
+          <Module id={sandbox.constants.MODULE_EVENT_DETAILS} sandbox={sandbox} className='content' />
           <div className='sidebar'></div>
         </>
       );

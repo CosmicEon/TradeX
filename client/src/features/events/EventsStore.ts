@@ -12,16 +12,7 @@ export class EventsStore {
 
   @action
   public selectedEvent(id: number) {
-    console.log('handleClickElement', id);
-    this.sandbox.publishAsync({
-      type: this.sandbox.constants.MESSAGE_EVENT_ID,
-      id
-    });
-  }
-
-  @action
-  public handleClickElement(id: number) {
-    this.service.setCurrentEventId(id);
+    this.service.setCurrentEvent(id);
   }
 
   @computed

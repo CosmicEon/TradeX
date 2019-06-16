@@ -9,9 +9,10 @@ export function registerModules(core: jc.Core): void {
   core.addModule(constants.MODULE_FOOTER, sb => new modules.FooterModule(sb));
   core.addModule(constants.MODULE_CONTAINER, sb => new modules.ContainerModule(sb));
   core.addModule(constants.MODULE_EVENTS, sb => new modules.EventsModule(sb));
+  core.addModule(constants.MODULE_SEARCH, sb => new modules.SearchModule(sb));
   core.addModule(constants.MODULE_TEST, sb => new modules.TestRouteModule(sb));
   core.addModule(constants.MODULE_AUTH, sb => new modules.AuthModule(sb));
-  core.addModule(constants.MODULE_BET_OPTIONS, sb => new modules.BetOptionsModule(sb));
+  core.addModule(constants.MODULE_EVENT_DETAILS, sb => new modules.EventDetailsModule(sb));
   core.addModule(constants.MODULE_ADMIN, sb => new modules.AdminModule(sb));
 
   if (module.hot) {

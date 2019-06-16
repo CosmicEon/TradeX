@@ -45,8 +45,8 @@ export class AuthStore {
       this.ajax.post({ url, data })
         .then((response) => {
           // TODO: check if prop is user
-          const data = JSON.parse(response.data);
-          this.identity.saveUser(data.user);
+          const parsedResponse = JSON.parse(response.data);
+          this.identity.saveUser(parsedResponse.user);
         })
         .catch((error) => { console.log(error); });
     }
