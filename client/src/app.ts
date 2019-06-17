@@ -46,7 +46,7 @@ app.init(() => {
 
   const token = localStorage.getItem('access_token');
 
-  if (token) {
+  if (token && token !== 'undefined') {
     const idenity = app.getService('identity');
     idenity.saveUser(token);
   }
